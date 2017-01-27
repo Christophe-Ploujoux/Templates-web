@@ -1,3 +1,4 @@
 * text=auto
 *.js linguist-language=Javascript
 *.vue linguist-language=VueJs
+*.php linguist-vendored
