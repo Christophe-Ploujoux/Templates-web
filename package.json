@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "coffee-loader": "^0.7.2",
     "font-awesome": "^4.6.3",
     "jade": "^1.11.0",
     "validator": "^6.1.0",
