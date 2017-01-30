@@ -37,6 +37,9 @@ $api->version('v1', function (Router $api) {
         ]);
     });
 
+    $api->get('config/{file}', function($file) {
+        return Config::get($file);
+    });
     $api->get('hello', function() {
         return response()->json([
             'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'

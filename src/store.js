@@ -10,7 +10,8 @@ const store = new Vuex.Store({
       email: "",
       isLoged: false,
       token: ""
-    }
+    },
+    config: {}
   },
   mutations: {
     login (state, status) {
@@ -18,7 +19,10 @@ const store = new Vuex.Store({
     },
     user (state, user) {
       state.user = user
-    } 
+    },
+    config (state, config) {
+      state.config = config
+    }
   }
 })
 

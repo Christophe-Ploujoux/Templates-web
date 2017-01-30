@@ -36,6 +36,16 @@ router.beforeEach((to, from, next) => {
 })
 
 new Vue({
+  mounted: function() {
+    this.$http.get("http://localhost:8000/api/config/template")
+    .then((res) => {
+      this.$store.commit("config", res.data)
+      document.title = res.data.title
+      $('meta[name="description"]').attr("content", res.data.description)
+    }, (err) => {
+      console.log(err)
+    });
+  },
   router,
   store,
   el: '#app',

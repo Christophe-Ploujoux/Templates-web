@@ -9,7 +9,7 @@
         h3 v-slide 2
   .content
     h3 Test
-   v-parallax(src="http://materializecss.com/images/parallax1.jpg", :height="250")
+   v-parallax(src="/static/images/parallax1.png", :height="250")
   .test
     h3 test
 </template>
