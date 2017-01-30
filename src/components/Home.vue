@@ -2,10 +2,10 @@
 .home
   .uppage
     v-slider(:indicators="false", :height="height")
-      v-slide(src='https://cdn1.twinfinite.net/wp-content/uploads/2016/05/esports.jpg')
+      v-slide(src='/static/images/yaplusk.jpg')
         .container.first-slide
           h1 v-slide 1
-      v-slide(src='http://www.yaplusk.fr/wp-content/uploads/2016/10/hands-people-woman-working-3.jpg')
+      v-slide(src='/static/images/esports.jpg')
         h3 v-slide 2
   .content
     h3 Test

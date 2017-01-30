@@ -20,7 +20,7 @@
         return
 </script>
 
-<style>
+<style lang="scss">
 .modal-mask {
   position: fixed;
   z-index: 9998;
