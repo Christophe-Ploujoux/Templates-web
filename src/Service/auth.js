@@ -1,4 +1,4 @@
-const url_to_send = "http://localhost:8000/api"
+const url_to_send = "http://frontend.dev/api"
 const LOGIN_URL = url_to_send + "/auth/login"
 const REGISTER_URL = url_to_send + "/auth/signup"
 const FORGET_URL = url_to_send + "/auth/recovery"

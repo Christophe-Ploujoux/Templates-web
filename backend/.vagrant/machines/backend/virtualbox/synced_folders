@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/backend":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/backend","hostpath":"/home/chris/projet/perso/frontend/backend","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/chris/projet/perso/frontend/backend","disabled":false,"__vagrantfile":true}}}

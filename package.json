@@ -5,9 +5,11 @@
   "author": "Christophe <ch.ploujoux@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"node build/dev-server.js\" \"php backend/artisan serve\" --kill-others",
+    "dev-vagrant": "concurrently \"node build/dev-server.js\" \"cd backend; vagrant ssh -- -t 'cd backend; php artisan serve'\" --kill-others",
+    "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
+    "vagrant" : "cd backend; vagrant ssh -- -t 'cd backend; php artisan serve",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
