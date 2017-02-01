@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 // ===================== Pages Components ======================
-import Home from './components/Home'
-import Dashboard from './components/Dashboard'
+import Home from './Home'
+import Dashboard from './Dashboard'
 
 
 // ==================== Router registration ====================

@@ -1,0 +1,47 @@
+{
+  "title" : "frontend",
+  "description" : "Un petit template pour faire un site rapidement",
+  "home": [
+    {
+      "name": "slider",
+      "template": {
+        "indicators": true,
+        "transition": 200,
+        "slides": [
+          {
+            "img": "yaplusk.jpg",
+            "content": {
+              "title": "v-slide 1"
+            }
+          },
+          {
+            "img" : "parallax1.png",
+            "content": {
+              "title": "v-slide 2",
+              "subtitle": "une petite description"
+            }
+          },
+          {
+            "img": "esports.jpg",
+            "content": {
+              "title": "v-slide 3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "content-simple",
+      "template": {
+        "content": "<h2>Test</h2>"
+      }
+    },
+    {
+      "name": "parallax",
+      "template": {
+        "img": "parallax1.png",
+        "height": 250
+      }
+    }
+  ]
+}
