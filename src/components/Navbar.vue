@@ -4,8 +4,8 @@
     .container(v-if="!mobile")
       a.left(href='#', slot='logo') Logo
       ul.right
-        li
-          router-link(to="/" class="nav-item nav-link") Home
+        li(v-for="page in $store.state.config.pages")
+          router-link(:to="page.path" class="nav-item nav-link") {{ page.name }}
         li
           router-link.nav-item.nav-link(v-if="$store.state.user.isLoged" to="/dashboard" class="nav-item nav-link") Dashboard
         li(v-if="!$store.state.user.isLoged" @click="openModal") Login / Register
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="coffee">
-  auth = require("../Service/auth").default.authentication
+  auth = require("../Service/auth")
 
   module.exports =
     props:

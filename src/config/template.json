@@ -1,47 +1,85 @@
 {
-  "title" : "frontend",
+  "title" : "Ya+K",
+  "backend": "http://backend.dev/api",
+  "frontend": "http://localhost:8081",
   "description" : "Un petit template pour faire un site rapidement",
-  "home": [
+  "favicon32": "favicon-32x32.png",
+  "favicon180": "favicon-180x180.png",
+  "favicon192": "favicon-192x192.png",
+  "pages": [
     {
-      "name": "slider",
-      "template": {
-        "indicators": true,
-        "transition": 200,
-        "slides": [
-          {
-            "img": "yaplusk.jpg",
-            "content": {
-              "title": "v-slide 1"
-            }
-          },
-          {
-            "img" : "parallax1.png",
-            "content": {
-              "title": "v-slide 2",
-              "subtitle": "une petite description"
-            }
-          },
-          {
-            "img": "esports.jpg",
-            "content": {
-              "title": "v-slide 3"
-            }
+      "name" : "Home",
+      "path" : "/",
+      "contents": [
+        {
+          "name": "slider",
+          "template": {
+            "indicators": true,
+            "transition": 200,
+            "slides": [
+              {
+                "img": "yaplusk.jpg",
+                "content": {
+                  "title": "v-slide 1"
+                }
+              },
+              {
+                "img" : "parallax1.png",
+                "content": {
+                  "title": "v-slide 2",
+                  "subtitle": "une petite description"
+                }
+              },
+              {
+                "img": "esports.jpg",
+                "content": {
+                  "title": "v-slide 3"
+                }
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "name": "content-simple",
+          "template": {
+            "content": "<h2>Test</h2>"
+          }
+        },
+        {
+          "name": "parallax",
+          "template": {
+            "img": "parallax1.png",
+            "height": 250
+          }
+        }        
+      ]     
     },
     {
-      "name": "content-simple",
-      "template": {
-        "content": "<h2>Test</h2>"
-      }
-    },
-    {
-      "name": "parallax",
-      "template": {
-        "img": "parallax1.png",
-        "height": 250
-      }
+      "name" : "Test",
+      "path" : "/test",
+      "contents": [
+        {
+          "name": "slider",
+          "template": {
+            "indicators": true,
+            "transition": 200,
+            "slides": [
+              {
+                "img": "yaplusk.jpg",
+                "content": {
+                  "title": "v-slide 1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "content-simple",
+          "template": {
+            "content": "<h2>Test</h2>"
+          }
+        }       
+      ]     
     }
   ]
 }

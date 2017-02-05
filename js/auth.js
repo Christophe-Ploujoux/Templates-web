@@ -1,4 +1,4 @@
-const url_to_send = "http://frontend.dev/api"
+const url_to_send = require("../config/template.json").backend
 const LOGIN_URL = url_to_send + "/auth/login"
 const REGISTER_URL = url_to_send + "/auth/signup"
 const FORGET_URL = url_to_send + "/auth/recovery"
@@ -16,7 +16,7 @@ export default {
         context.$store.commit("user", user) 
         context.$dialog('Vous êtes maintenant connecté', 2500);
         context.$emit('close')
-        document.location = "/#/dashboard"
+        context.$router.push("/dashboard")
       },
       (err) => {
         context.errors = [err.data.error.message]
@@ -46,7 +46,7 @@ export default {
         if (response.status == 'connected')
           FB.logout()
       })
-      window.location = '#/'
+      context.$router.push('/')
       context.$dialog('Vous avez bien été deconnecté', 2500)
       localStorage.removeItem("token")
       context.$store.commit("login", false)

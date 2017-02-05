@@ -3,7 +3,8 @@
     navbar(:mobile="mobile", @openModal="showModal = true")
     .center-align
       transition(name="fade", mode="out-in")
-        router-view
+        router-view(v-if="page", :title="page.name" ,:contents="page.contents")
+        router-view(v-else)
     login-register(v-if="showModal && !isLoged", @close="showModal = false")
     footer-app
 </template>
@@ -12,13 +13,20 @@
   Navbar = require './components/Navbar'
   FooterApp = require './components/FooterApp'
   loginRegister = require './components/LoginRegister'
-  auth = require("./Service/auth").default.authentication
-
+  auth = require("./Service/auth")
+  pages = require("./config/template.json").pages
   module.exports =
     components:
       Navbar: Navbar
       FooterApp: FooterApp
       LoginRegister: loginRegister
+    computed:
+      page:->
+        for page in pages
+          if @$route.path == page.path
+            document.title = @$store.state.config.title + " - " + page.name
+            return page
+        return null       
     data: ->
       {
         showModal: false
@@ -29,7 +37,6 @@
       @mobile = if mq.matches then true else false
       if (localStorage.token)
         auth.getUser(@)
-      return
 
 
 </script>

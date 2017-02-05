@@ -25,7 +25,7 @@ modal.login(@close="$emit('close')")
   Success = require './Success'
   validator = require('validator')
   Modal = require("./Modal")
-  auth = require("../Service/auth").default.authentication
+  auth = require("../Service/auth")
 
   module.exports =
     components:

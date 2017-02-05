@@ -11,13 +11,13 @@
 
   module.exports =
     locales: require('./i18n/Hello.js')
+    props:
+      contents:
+        type: Array
+      title:
+        type: String
     components:
       slider: Slider
       parallax: Parallax
       contentSimple: ContentSimple
-    data:->
-      {
-        contents: @$store.state.config.home
-      }
 </script>
-

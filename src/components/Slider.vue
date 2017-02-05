@@ -22,7 +22,7 @@
       getSrc: (src)->
         if src.indexOf("http://") != -1
           return src
-        return "/static/images/" + src
+        return "/static/img/" + src
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -1,0 +1,28 @@
+#!/bin/sh
+STATIC=./dist/static
+FONT=$STATIC/font
+FONTS=$STATIC/fonts
+IMG=$STATIC/img
+
+if [ -d $FONTS ]; then 
+  echo "Found $FONTS"; 
+else mkdir $FONTS;  
+fi
+
+if [ -d $FONT ]; then 
+  echo "Found $FONT";
+else mkdir $FONT;
+fi
+
+if [ -d $IMG ];
+  then echo "Found $IMG";
+else mkdir $IMG;
+fi
+
+mv $STATIC/static/js/* $STATIC/js
+mv $STATIC/static/css/* $STATIC/css
+mv $STATIC/static/fonts/* $STATIC/fonts
+mv $STATIC/static/font/* $STATIC/font
+mv $STATIC/static/img/* $STATIC/img
+
+rm -rf $STATIC/static
