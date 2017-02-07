@@ -12,8 +12,8 @@
   "third-color-light": "lighten($third-color, 15%) !default",
   "third-color-dark": "darken($third-color, 15%) !default",
 
-  "success-color": "color('green', 'base') !default",
-  "error-color": "color('red', 'base') !default",
+  "success-color": "#4caf50 !default",
+  "error-color": "#e53935 !default",
 
 
   "link-color": "color('light-blue', 'darken-1') !default",

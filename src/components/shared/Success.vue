@@ -9,7 +9,7 @@ Composant Success vue:
     transition(name="fade")
       .card-panel.green(v-if="close")
         i.white-text.close.material-icons.right(@click="send") close
-        span.white-text {{ message }}
+        span.white-text(v-translate) {{ message }}
 </template>
 
 <script lang="coffee">

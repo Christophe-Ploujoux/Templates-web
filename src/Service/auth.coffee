@@ -7,6 +7,7 @@ FACEBOOK_LOGIN_URL = url_to_send + '/auth/login/facebook'
 
 class Auth
   constructor: (@context)->
+    @root = @context.$parent
 
   connectUser:(token) ->
     that = this
@@ -16,7 +17,7 @@ class Auth
       user.isLoged = true
       user.token = localStorage.token
       that.context.$store.commit 'user', user
-      that.context.$dialog 'Vous êtes maintenant connecté', 2500
+      that.root.toast 'success', 'Vous êtes maintenant connecté'
       that.context.$emit 'close'
       that.context.$router.push '/dashboard'
       return
@@ -35,10 +36,11 @@ class Auth
       that.context.errors = [ err.data.error.message ]
       return
     return
+
   register: (rows) ->
     that = this
     @context.$http.post(REGISTER_URL, rows).then ((response) ->
-      that.context.$dialog 'Votre compte a bien été crée, vous pouvez vous connectez', 2500
+      that.root.toast 'success', 'Votre compte a bien été crée, vous pouvez vous connectez'
       return
     ), (err) ->
       that.context.errors = [ err.data.error.message ]
@@ -51,7 +53,7 @@ class Auth
         FB.logout()
       return
     @context.$router.push '/'
-    @context.$dialog 'Vous avez bien été deconnecté', 2500
+    @root.toast 'success', 'Vous avez bien été deconnecté'
     localStorage.removeItem 'token'
     @context.$store.commit 'login', false
     return

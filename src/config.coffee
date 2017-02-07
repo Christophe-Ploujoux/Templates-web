@@ -36,5 +36,6 @@ new Vue(
   router: router
   store: store
   el: '#app'
+  locales: require("./config/i18n.json")
   render: (h)-> h(App)
 )

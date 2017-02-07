@@ -17,70 +17,70 @@ Composant form Vue js:
           input.validate(type='text', :name='input.name', :id='input.name', v-model.trim='rows[input.name]')
           label(:for='input.name')
             div(v-if='!input.label')
-              | {{ labelString(input.name) }}
+              | {{ t(labelString(input.name)) }}
               span.error(v-if='input.required') *
             div(v-else='')
-              | {{ labelString(input.label) }}
+              | {{ t(labelString(input.label)) }}
               span.error(v-if='input.required') *
         .input-field.col(:class='input.style', v-if="input.type === 'password'")
           input.validate(type='password', :name='input.name', :id='input.name', v-model.trim='rows[input.name]')
           label(:for='input.name')
             div(v-if='!input.label')
-              | {{ labelString(input.name) }}
+              | {{ t(labelString(input.name)) }}
               span.error(v-if='input.required') *
             div(v-else='')
-              | {{ labelString(input.label) }}
+              | {{ t(labelString(input.label)) }}
               span.error(v-if='input.required') *
         .input-field.col(:class='input.style', v-if="input.type === 'email'")
           input.validate(type='email', :name='input.name', :id='input.name', v-model.trim='rows[input.name]')
           label(:for='input.name')
             div(v-if='!input.label')
-              | {{ labelString(input.name) }}
+              | {{ t(labelString(input.name)) }}
               span.error(v-if='input.required') *
             div(v-else='')
-              | {{ labelString(input.label) }}
+              | {{ t(labelString(input.label)) }}
               span.error(v-if='input.required') *
         .col(:class='input.style', v-if="input.type === 'radio'")
           ul.row
             li.inline(v-for='radio in input.option')
               input.with-gap(type='radio', :name='input.name', :id='radio', v-model.trim='rows[input.name]', :value='radio')
               label(:for='radio')
-                | {{ labelString(radio) }}
+                | {{ t(labelString(radio)) }}
         .input-field.col(:class='input.style', v-if="input.type === 'select'")
           select(:id='input.name', v-model='rows[input.name]')
-            option(:value='select', :selected='select === input.option[0]', :disabled='select === input.option[0]', v-for='select in input.option') {{ select }}
+            option(:value='select', :selected='select === input.option[0]', :disabled='select === input.option[0]', v-for='select in input.option') {{ t(select) }}
         .col(:class='input.style', v-if="input.type === 'checkbox'")
           div(v-for='check in input.option')
             input(type='checkbox', :id='check', :value='check', v-model='rows[input.name]')
-            label(:for='check') {{ labelString(check) }}
+            label(:for='check') {{ t(labelString(check)) }}
         .switch.col(:class='input.style', v-if="input.type === 'switch'")
           label
-            | {{ input.option[0] }}
+            | {{ t(input.option[0]) }}
             input(type='checkbox', v-model='rows[input.name]')
             span.lever
-            |             {{ input.option[1] }}
+            | {{ t(input.option[1]) }}
         .col.input-field(:class='input.style', v-if="input.type === 'date'")
           input.datepicker.pointer(type='date', :name='input.name', :id='input.name', v-model='rows[input.name]')
           label(:for='input.name')
             div(v-if='!input.label')
-              | {{ labelString(input.name) }}
+              | {{ t(labelString(input.name)) }}
               span.error(v-if='input.required') *
             div(v-else='')
-              | {{ labelString(input.label) }}
+              | {{ t(labelString(input.label)) }}
               span.error(v-if='input.required') *
         .input-field.col(:class='input.style', v-if="input.type === 'textarea'")
           i.material-icons.prefix mode_edit
           textarea.materialize-textarea(:name='input.name', :id='input.name', v-model.trim='rows[input.name]', @keyup='checkInput(input)')
           label(:for='input.name')
             div(v-if='!input.label')
-              | {{ labelString(input.name) }}
+              | {{ t(labelString(input.name)) }}
               span.error(v-if='input.required') *
             div(v-else='')
-              | {{ labelString(input.label) }}
+              | {{ t(labelString(input.label)) }}
               span.error(v-if='input.required') *
       slot
     div(v-bind:class="{ 'center-align' : center}")
-      button.waves-effect.waves-light.btn(type='submit') {{ name }}
+      button.waves-effect.waves-light.btn(type='submit') {{ t(name) }}
 </template>
 
 <script lang="coffee">

@@ -11,6 +11,7 @@ module.exports =
         isLoged: false
         token: ''
       config: {}
+
     mutations:
       login: (state, status) ->
         state.user.isLoged = status

@@ -3,28 +3,26 @@ Router = require 'vue-router'
 
 Vue.use(Router)
 
-# ===================== Pages Components ======================
-Dashboard = require './Dashboard'
-Page = require './Page'
-
 pages = require('./config/template.json').pages
+auth_pages = require('./config/template.json').auth
 
 Routes = []
 for page in pages
-  Routes.push({
-    path: page.path,
-    component: Page
-  })
+  toPush =
+    path: page.path
+    component: if page.component then require("./" + page.component) else require './Page'
+  Routes.push
+    path: page.path
+    component: if page.component then require("./" + page.component) else require './Page'
 
-Routes.push
-  path: '/dashboard'
-  component: Dashboard
-  beforeEnter: (route, redirect, next) ->
-    if route.path.indexOf('/dashboard') != -1
+for page in auth_pages
+  Routes.push
+    path: page.path
+    component: if page.component then require("./" + page.component) else require './Page'
+    beforeEnter: (route, redirect, next) ->
       if !localStorage.token
         return next('/')
       return next()
-    return
 
 module.exports =
   new Router({

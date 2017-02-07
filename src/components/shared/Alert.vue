@@ -8,7 +8,7 @@ Composant Alert vue:
     transition(name="fade")
       .card-panel.red.alert-vue(v-if="errors.length > 0")
         i.white-text.close.material-icons.right(@click="send") close
-        span.white-text(v-for="error in errors") {{ error }}
+        span.white-text(v-translate, v-for="error in errors") {{ error }}
           br
 </template>
 

@@ -10,42 +10,49 @@
 </template>
 
 <script lang="coffee">
-  Navbar = require './components/Navbar'
-  FooterApp = require './components/FooterApp'
-  loginRegister = require './components/LoginRegister'
-  auth = require("./Service/auth")
-  pages = require("./config/template.json").pages
+  Auth = require("./Service/auth")
+  pages = require("./config/template.json")
   module.exports =
     components:
-      Navbar: Navbar
-      FooterApp: FooterApp
-      LoginRegister: loginRegister
+      Navbar: require './components/Navbar'
+      FooterApp: require './components/FooterApp'
+      LoginRegister: require './components/LoginRegister'
     computed:
       page:->
-        for page in pages
+        for page in pages.pages
+          if @$route.path == page.path
+            document.title = @$store.state.config.title + " - " + page.name
+            return page
+        for page in pages.auth
           if @$route.path == page.path
             document.title = @$store.state.config.title + " - " + page.name
             return page
         return null       
     data: ->
       {
+        auth: new Auth(this)
         showModal: false
         isLoged: false
       }
+    mounted:->
+      @$translate.setLang 'fr'
     created: ->
       mq = window.matchMedia("(max-width: 1000px)")
       @mobile = if mq.matches then true else false
       if (localStorage.token)
-        auth.getUser(@)
+        @auth.getUser()
+    methods:
+      toast:(type, content)->
+        if (type == 'error')
+          @$dialog content, 2500, 'error-toast'
+        if (type == 'success')
+          @$dialog content, 2500, 'success-toast'  
+               
 
 
 </script>
 
 <style lang="scss">
-  // Bootstrap
-
-  // font awesome
-
   button {
     @media #{$medium-and-down} { 
       font-size: 10px;
@@ -55,10 +62,7 @@
   .content-app {
     padding: 5% 5% 5% 5%;
   }
-  .toast {
-    background-color: #4caf50;
-  }
-
+  
   input:not([type]), input[type=text], input[type=password], 
   input[type=email], input[type=url], 
   input[type=time], input[type=date], 
@@ -82,11 +86,11 @@
   }
 
   .success-toast {
-    background-color: #4caf50;
+    background-color: $success-color;
   }
 
   .error-toast {
-  background-color: #e53935;
+    background-color: $error-color;
   }
 
   .fade-enter-active, .fade-leave-active {

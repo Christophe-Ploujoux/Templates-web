@@ -20,21 +20,17 @@ modal.login(@close="$emit('close')")
 </template>
 
 <script lang="coffee">
-  formVue = require './formVue'
-  Alert = require './Alert'
-  Success = require './Success'
   validator = require('validator')
-  Modal = require("./Modal")
   Auth = require("../Service/auth")
 
   module.exports =
     created:->
       @auth = new Auth(this)
     components:
-      formVue: formVue
-      Alert: Alert
-      Success: Success
-      Modal: Modal
+      formVue: require './shared/formVue'
+      Alert: require './shared/Alert'
+      Success: require './shared/Success'
+      Modal: require("./shared/Modal")
     data: ->
       {
         valid: validator

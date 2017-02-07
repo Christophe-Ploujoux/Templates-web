@@ -10,7 +10,6 @@
   ContentSimple = require "./components/template/ContentSimple"
 
   module.exports =
-    locales: require('./i18n/Hello.js')
     props:
       contents:
         type: Array

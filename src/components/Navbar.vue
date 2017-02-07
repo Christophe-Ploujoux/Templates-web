@@ -5,19 +5,23 @@
       a.left(href='#', slot='logo') Logo
       ul.right
         li(v-for="page in $store.state.config.pages")
-          router-link(:to="page.path" class="nav-item nav-link") {{ page.name }}
-        li
-          router-link.nav-item.nav-link(v-if="$store.state.user.isLoged" to="/dashboard" class="nav-item nav-link") Dashboard
+          router-link(:to="page.path" class="nav-item nav-link") 
+            | {{ page.name }}
+        li(v-for="page in $store.state.config.auth", v-if="$store.state.user.isLoged")
+          router-link.nav-item.nav-link(:to="page.path" class="nav-item nav-link")
+            | {{ page.name }}
         li(v-if="!$store.state.user.isLoged" @click="openModal") Login / Register
         li(v-if="$store.state.user.isLoged" @click="disconnect") Disconnect
     .container.side-nav-active.center-align(v-else)
-      i.material-icons(v-side-nav:side-nav="nav") menu
+      i.material-icons.side-nav-button(v-side-nav:side-nav="nav") menu
       a(href='#', slot='logo') Logo
     v-side-nav#side-nav(slot='side-nav')
-      li
-        router-link(to="/" class="nav-item nav-link") Home
-      li
-        router-link.nav-item.nav-link(v-if="$store.state.user.isLoged" to="/dashboard" class="nav-item nav-link") Dashboard
+      li(@click="closeSideBar",v-for="page in $store.state.config.pages")
+        router-link(:to="page.path" class="nav-item nav-link") 
+          | {{ page.name }}
+      li(@click="closeSideBar", v-for="page in $store.state.config.auth", v-if="$store.state.user.isLoged")
+        router-link.nav-item.nav-link(:to="page.path" class="nav-item nav-link")
+          | {{ page.name }}
       li(v-if="!$store.state.user.isLoged" @click="openModal") 
         a Login / Register
       li(v-if="$store.state.user.isLoged" @click="disconnect")
@@ -39,10 +43,15 @@
       }
     methods:
       disconnect: ->
+        @closeSideBar()
         @auth.logout(@)
 
       openModal: ->
+        @closeSideBar()
         @$emit 'openModal'
+      closeSideBar:->
+        $('.side-nav-button').sideNav('hide')
+
 
 </script>
 

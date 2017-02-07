@@ -1,10 +1,10 @@
-module.exports = {
-  fr: {
-    "Hello Vue !": "Bonjour Vue !",
+{
+  "fr": {
+    "v-slide 1": "Salut !",
     "Change Language": "Changer de langue"
   },
-  es: {
+  "es": {
     "Hello Vue !": "¡ Hola Vue !",
     "Change Language": "Cambiar de lengua"
   }
-};
+}

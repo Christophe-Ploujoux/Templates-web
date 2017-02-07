@@ -1,6 +1,7 @@
 {
   "title" : "Ya+K",
   "description" : "Un petit template pour faire un site rapidement",
+  "lang": "fr",
   "backend": "http://backend.dev/api",
   "frontend": "http://localhost:8081",
   "favicon32": "favicon-32x32.png",
@@ -16,6 +17,8 @@
           "template": {
             "indicators": true,
             "transition": 200,
+            "height": 700,
+            "mobileHeight": 550,
             "slides": [
               {
                 "img": "yaplusk.jpg",
@@ -65,6 +68,30 @@
           }
         }       
       ]     
+    },
+    {
+      "name": "Composant",
+      "path": "/composant",
+      "component": "Dashboard"
     }
+  ],
+  "auth": [
+    {
+      "component": "Dashboard",
+      "path": "/account",
+      "name": "Account"
+    },
+    {
+      "path": "/dashboard",
+      "name": "Test3",
+      "contents": [
+        {
+          "name": "content-simple",
+          "template": {
+            "content": "<h2>Test</h2>"
+          }
+        }       
+      ]
+    }    
   ]
 }
