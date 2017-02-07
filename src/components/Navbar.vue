@@ -25,9 +25,11 @@
 </template>
 
 <script lang="coffee">
-  auth = require("../Service/auth")
+  Auth = require("../Service/auth")
 
   module.exports =
+    created:->
+      @auth = new Auth(this)
     props:
       mobile: type: Boolean
     data: ()->
@@ -37,7 +39,7 @@
       }
     methods:
       disconnect: ->
-        auth.logout(@)
+        @auth.logout(@)
 
       openModal: ->
         @$emit 'openModal'
@@ -45,7 +47,6 @@
 </script>
 
 <style lang="scss">
-  @import "../assets/style/variable.scss";
 
   .side-nav-active {
     position: relative;

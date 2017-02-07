@@ -4,7 +4,6 @@ Router = require 'vue-router'
 Vue.use(Router)
 
 # ===================== Pages Components ======================
-Home = require './Home'
 Dashboard = require './Dashboard'
 Page = require './Page'
 

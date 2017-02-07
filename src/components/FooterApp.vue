@@ -24,7 +24,6 @@
 </script>
 
 <style lang="scss">
-  @import "../assets/style/variable.scss";
 
   .page-footer {
     background-color: $primary-color !important;

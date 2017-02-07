@@ -42,7 +42,6 @@
 </script>
 
 <style lang="scss">
-  @import "./assets/style/variable.scss";
   // Bootstrap
 
   // font awesome

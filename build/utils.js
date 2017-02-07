@@ -32,14 +32,14 @@ exports.cssLoaders = function (options) {
       return ['vue-style-loader', sourceLoader].join('!')
     }
   }
-
+  var sassVars = './src/config/style.json';
   // http://vuejs.github.io/vue-loader/configurations/extract-css.html
   return {
     css: generateLoaders(['css']),
     postcss: generateLoaders(['css']),
     less: generateLoaders(['css', 'less']),
     sass: generateLoaders(['css', 'sass?indentedSyntax']),
-    scss: generateLoaders(['css', 'sass']),
+    scss: generateLoaders(['css', 'sass', 'jsontosass?path='+ sassVars]),
     stylus: generateLoaders(['css', 'stylus']),
     styl: generateLoaders(['css', 'stylus'])
   }

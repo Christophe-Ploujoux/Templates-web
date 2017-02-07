@@ -1,8 +1,8 @@
 {
   "title" : "Ya+K",
+  "description" : "Un petit template pour faire un site rapidement",
   "backend": "http://backend.dev/api",
   "frontend": "http://localhost:8081",
-  "description" : "Un petit template pour faire un site rapidement",
   "favicon32": "favicon-32x32.png",
   "favicon180": "favicon-180x180.png",
   "favicon192": "favicon-192x192.png",
@@ -58,21 +58,6 @@
       "name" : "Test",
       "path" : "/test",
       "contents": [
-        {
-          "name": "slider",
-          "template": {
-            "indicators": true,
-            "transition": 200,
-            "slides": [
-              {
-                "img": "yaplusk.jpg",
-                "content": {
-                  "title": "v-slide 1"
-                }
-              }
-            ]
-          }
-        },
         {
           "name": "content-simple",
           "template": {

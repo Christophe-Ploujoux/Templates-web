@@ -25,9 +25,11 @@ modal.login(@close="$emit('close')")
   Success = require './Success'
   validator = require('validator')
   Modal = require("./Modal")
-  auth = require("../Service/auth")
+  Auth = require("../Service/auth")
 
   module.exports =
+    created:->
+      @auth = new Auth(this)
     components:
       formVue: formVue
       Alert: Alert
@@ -59,13 +61,13 @@ modal.login(@close="$emit('close')")
       }    
     methods:
       sendLogin: (rows) ->
-        auth.login(@, rows)
+        @auth.login(rows)
       sendLoginFacebook: ->
-        auth.loginFacebook(@)
+        @auth.loginFacebook()
       sendRegister: (rows) ->
-        auth.register(@, rows)
+        @auth.register(rows)
       sendForget: (rows) ->
-        auth.sendForget(@, rows)
+        @auth.sendForget(rows)
       initialize: ->
         @errors = []
         @success = ''
@@ -89,12 +91,8 @@ modal.login(@close="$emit('close')")
 </script>
 
 <style lang="scss">
-  @import "../assets/style/variable.scss";
 
   .login {
-    .btn {
-      background-color: $secondary-color;
-    }
     width: 100%;
     padding: 50px;
     padding: 0;

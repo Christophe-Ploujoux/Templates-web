@@ -5,9 +5,9 @@
 </template>
 
 <script lang="coffee">
-  Slider = require "./components/Slider"
-  Parallax = require "./components/Parallax"
-  ContentSimple = require "./components/ContentSimple"
+  Slider = require "./components/template/Slider"
+  Parallax = require "./components/template/Parallax"
+  ContentSimple = require "./components/template/ContentSimple"
 
   module.exports =
     locales: require('./i18n/Hello.js')

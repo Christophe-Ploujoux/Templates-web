@@ -16,6 +16,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-@import "../assets/style/variable.scss";
 
 </style>
