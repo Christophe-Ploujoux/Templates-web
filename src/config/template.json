@@ -58,21 +58,9 @@
       ]     
     },
     {
-      "name" : "Test",
-      "path" : "/test",
-      "contents": [
-        {
-          "name": "content-simple",
-          "template": {
-            "content": "<h2>Test</h2>"
-          }
-        }       
-      ]     
-    },
-    {
-      "name": "Composant",
-      "path": "/composant",
-      "component": "Dashboard"
+      "name": "Gallery",
+      "path": "/gallery",
+      "component": "GalleryPage"
     }
   ],
   "auth": [
@@ -83,15 +71,8 @@
     },
     {
       "path": "/dashboard",
-      "name": "Test3",
-      "contents": [
-        {
-          "name": "content-simple",
-          "template": {
-            "content": "<h2>Test</h2>"
-          }
-        }       
-      ]
+      "name": "Dashboard",
+      "component": "Dashboard"
     }    
   ]
 }
