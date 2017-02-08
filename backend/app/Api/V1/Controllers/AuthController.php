@@ -74,7 +74,7 @@ class AuthController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $broker = $this->getPasswordBroker();
+        $broker = $this->broker();
         $sendingResponse = $broker->sendResetLink($request->only('email'));
 
         if($sendingResponse !== Password::RESET_LINK_SENT) {
@@ -112,22 +112,11 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Get the broker to be used during password reset.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker
-     */
     public function broker()
     {
         return Password::broker();
     }
 
-    /**
-     * Get the password reset credentials from the request.
-     *
-     * @param  ResetPasswordRequest  $request
-     * @return array
-     */
     protected function credentials(ResetPasswordRequest $request)
     {
         return $request->only(
@@ -135,22 +124,9 @@ class AuthController extends Controller
         );
     }
 
-    /**
-     * Reset the given user's password.
-     *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
-     * @param  string  $password
-     * @return void
-     */
     protected function reset($user, $password)
     {
         $user->password = $password;
         $user->save();
-    }
-
-
-    private function getPasswordBroker()
-    {
-        return Password::broker();
     }
 }
